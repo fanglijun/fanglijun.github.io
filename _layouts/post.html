@@ -16,3 +16,21 @@ layout: default
     {% include disqus_comments.html %}
   {% endif %}
 </article>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+function iframeImg(imgSelector){
+  var frameStr = '<iframe style="display:inline-block;width:100%;height:100%;border:0 none;"></iframe>';
+  /*jslint scripturl: true*/
+  var frameSrc = 'javascript:\'<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" /><style>html,body{width:100%;height:100%;padding:0;margin:0;line-height:0;}</style></head><body></body></html>\';';
+  $(imgSelector).each(function (){
+      var imgSrc = this.src;
+      var iframe = $(frameStr).load(function (){
+          $('<img style="max-width:100%;">').load(function (){
+              iframe.css({width: this.width, height: this.height});
+          }).appendTo(iframe[0].contentWindow.document.body).attr('src', imgSrc+'?_t='+Math.random());
+      }).attr('src', frameSrc);
+      $(this).replaceWith(iframe);
+  });
+}
+iframeImg(".post-content img");
+</script>
