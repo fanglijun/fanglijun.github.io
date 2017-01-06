@@ -8,7 +8,7 @@ categories: my2829
 ### 一、JMX（Java Management Extensions）
 你按照规范实现MBean（Standard MBean or Dynamic MBean or MXBean），JMX允许你通过远程的Client（JConsole or HTTP Client or SNMP client）来查看（查看属性值、方法定义）、操作（修改属性值、远程调用方法）你的Bean。
 
-![](https://upload.wikimedia.org/wikipedia/en/d/db/Jmxarchitecture.png)
+![](http://mmbiz.qpic.cn/mmbiz_png/SHQtibmBWibdxoMcDOs8h7TfwmfPN59CwhzK4FjJyNY8rtSqxo81BWZhV1qa34cOWZ2uOlyTVueRpo0bKyLzREsQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
 ### 二、 Standard MBean 示例
 #### 定义接口和Bean
