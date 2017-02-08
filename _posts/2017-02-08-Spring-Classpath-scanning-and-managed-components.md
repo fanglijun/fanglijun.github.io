@@ -6,6 +6,7 @@ categories: my2829
 ---
 
 ### Enable component scan
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -25,6 +26,7 @@ categories: my2829
 
 
 ### Using filters to customize scanning
+
 ```xml
 <beans>
     <context:component-scan base-package="org.example">
@@ -37,6 +39,7 @@ categories: my2829
 ```
 
 #### Filter Types
+
 - **annotation (default)**
     - `org.example.SomeAnnotation`
     - An annotation to be present at the type level in target components.
@@ -61,6 +64,7 @@ public class SimpleMovieLister {
 }
 ```
 #### 使用NameGenerator （implements BeanNameGenerator）
+
 ```xml
 <beans>
     <context:component-scan base-package="org.example"
@@ -69,6 +73,7 @@ public class SimpleMovieLister {
 ```
 
 ### Providing a scope for autodetected components
+
 ```java
 @Scope("prototype")
 @Repository
@@ -76,11 +81,12 @@ public class MovieFinderImpl implements MovieFinder {
     // ...
 }
 ```
+
 #### 使用Scope resolver (implements ScopeMetadataResolver)
+
 ```xml
 <beans>
     <context:component-scan base-package="org.example"
             scope-resolver="org.example.MyScopeResolver" />
 </beans>
 ```
-
