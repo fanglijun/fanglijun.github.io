@@ -6,12 +6,15 @@ categories: my2829
 ---
 
 ### 一、JMX（Java Management Extensions）
+
 你按照规范实现MBean（Standard MBean or Dynamic MBean or MXBean），JMX允许你通过远程的Client（JConsole or HTTP Client or SNMP client）来查看（查看属性值、方法定义）、操作（修改属性值、远程调用方法）你的Bean。
 
 ![](http://mmbiz.qpic.cn/mmbiz_png/SHQtibmBWibdxoMcDOs8h7TfwmfPN59CwhzK4FjJyNY8rtSqxo81BWZhV1qa34cOWZ2uOlyTVueRpo0bKyLzREsQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
 ### 二、 Standard MBean 示例
+
 #### 定义接口和Bean
+
 ```java
 // 首先有个interface
 // 你只能查看、操作这个interface里定义的属性和方法
@@ -46,6 +49,7 @@ public class Hello implements HelloMBean {
 ```
 
 #### 创建Bean并注册到Server
+
 ```java
 public static void main(String[] args) {
        // 获取MBeanServer
@@ -68,13 +72,16 @@ public static void main(String[] args) {
 ```
 
 #### 打开JConsole连接到Server
+
 1. 启动上面的程序
 2. 使用`jconsole`命令打开JConsole的GUI
 3. 找到上面的程序，连接
 4. .......
 
 ### 三、与Spring集成
+
 继续用上面的Hello bean，在Spring配置文件里加入:
+
 ```
 <bean id="testBean" class="tests.Hello">
     <property name="name" value="Xiaoming"/>
@@ -88,6 +95,7 @@ public static void main(String[] args) {
     </property>
 </bean>
 ```
+
 然后运行程序，打开JConsole，连接，就可以看到MBeans.
 
 
